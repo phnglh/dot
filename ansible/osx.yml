@@ -1,0 +1,9 @@
+- name: Setup Macos Workstation
+  hosts: local
+  roles:
+    # - packages
+    # - fonts
+    # - dot
+    # - node
+    # - system
+    #- web

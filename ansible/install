@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+function have {
+  command -v "$1" &>/dev/null
+}
+
+# install ansible
+have ansible || pipx install --include-deps ansible
+
+# Run Ansible
+ansible-playbook -i ./hosts ./osx.yml --ask-become-pass

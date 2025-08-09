@@ -19,3 +19,15 @@
   loop: "{{ dot_config.files }}"
   loop_control:
     label: "~/.config/{{item.path | basename}}"
+
+- name: .gitconfig
+  file:
+    src: "~/.config/.gitconfig"
+    dest: "~/.gitconfig"
+    state: link
+
+- name: .tmux.conf
+  file:
+    src: "~/.config/.tmux.conf"
+    dest: "~/.tmux.conf"
+    state: link

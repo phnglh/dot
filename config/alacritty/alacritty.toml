@@ -9,13 +9,13 @@ duration = 0
 [colors]
 draw_bold_text_with_bright_colors = false
 
-[[colors.indexed_colors]]
-color = "0xff9e64"
-index = 16
-
-[[colors.indexed_colors]]
-color = "0xdb4b4b"
-index = 17
+# [[colors.indexed_colors]]
+# color = "0xff9e64"
+# index = 16
+#
+# [[colors.indexed_colors]]
+# color = "0xdb4b4b"
+# index = 17
 
 [colors.bright]
 black = "0x414868"
@@ -52,11 +52,11 @@ TERM = "xterm-256color"
 size = 14.0
 
 [font.bold]
-family = "FiraCode Nerd Font"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "FiraCode Nerd Font"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Bold Italic"
 
 [font.glyph_offset]
@@ -64,12 +64,12 @@ x = 0
 y = 0
 
 [font.italic]
-family = "FiraCode Nerd Font"
+family = "JetBrainsMono Nerd Font Mono"
 style = "Italic"
 
 [font.normal]
-family = "FiraCode Nerd Font"
-style = "Retina"
+family = "JetBrainsMono Nerd Font Mono"
+style = "Regular"
 
 [font.offset]
 x = 0

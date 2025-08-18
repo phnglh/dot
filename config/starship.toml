@@ -8,7 +8,7 @@ command = "echo $STARSHIP_SHELL"  # shows output of command
 when = """ test "$STARSHIP_SHELL" != "fish" """
 style = "dimmed blue"
 format = "[$output]($style)"
-shell =["bash"]
+shell =["zsh"]
 
 # [custom.neovim]
 # command = 'bob ls | rg Used | awk "{print \$2}"'  # shows output of command
@@ -49,6 +49,7 @@ symbol = " "
 
 [conda]
 symbol = " "
+style = "green"
 
 [dart]
 symbol = " "

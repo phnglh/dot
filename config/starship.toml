@@ -10,14 +10,6 @@ style = "dimmed blue"
 format = "[$output]($style)"
 shell =["zsh"]
 
-# [custom.neovim]
-# command = 'bob ls | rg Used | awk "{print \$2}"'  # shows output of command
-# detect_folders = ["lua"]
-# style = "green"
-# format = "[ $output ]($style)"
-# shell =["bash"]
-
-
 [git_status]
 untracked = '[ $count](bold yellow) '
 staged = '[ $count](bold green) '
@@ -27,9 +19,6 @@ modified= '[ $count](bold blue) '
 behind = '[ ](bold purple) '
 ahead = '[ ](bold purple) '
 format = '([$all_status$ahead_behind]($style))'
-
-[[battery.display]]
-threshold = 50
 
 [lua]
 detect_folders = []

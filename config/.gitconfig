@@ -1,63 +1,82 @@
 [filter "lfs"]
-clean = git-lfs clean -- %f
-smudge = git-lfs smudge -- %f
-process = git-lfs filter-process
-required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 
 [user]
-name = phonglh
-email = phonghngle@gmail.com
-signingKey="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM6Wiq3iiWC0LUhDJaGN/N9OXONg0h2NvA0y7/6xRErp"
+    name = phonglh
+    email = phonghngle@gmail.com
+    signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM6Wiq3iiWC0LUhDJaGN/N9OXONg0h2NvA0y7/6xRErp
+
 [color]
-ui = true
+    ui = true
 
 [alias]
-st = status -sb
-co = checkout
-c = commit --short
-ci = commit --short
-p = push
-l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --decorate --date=short --color --decorate
+  ci=checkin
+    st = status
+    co = checkout
+    br = branch
+    df = diff
+    cp = cherry-pick
+    cm = commit
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --decorate --date=short --color --decorate
 
 [core]
-pager = delta
+    pager = delta
+    autocrlf = input
+    editor = nvim
 
 [interactive]
-diffFilter = delta --color-only
+    diffFilter = delta --color-only
 
 [delta]
-navigate = true    # use n and N to move between diff sections
-light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
-side-by-side = false
-line-numbers = true
+    navigate = true
+    light = false
+    side-by-side = false
+    line-numbers = true
 
 [merge]
-conflictstyle = diff3
+    conflictstyle = diff3
 
 [diff]
-colorMoved = default
+    colorMoved = default
+    algorithm = minimal
+    compactionHeuristic = true
+    renames = true
 
 [pull]
-rebase = true
+    ff = only
+
 [push]
-default = upstream
+    default = current
+
 [github]
-user = phnglh
+    user = phnglh
+
 [init]
-defaultBranch = main
+    defaultBranch = main
+
 [gpg]
-format = ssh
+    format = ssh
+
 [gpg "ssh"]
-	program = /usr/bin/ssh-keygen
+    program = /usr/bin/ssh-keygen
+
 [commit]
-gpgsign = true
+    gpgsign = true
+
 [credential]
-helper = cache
+    helper = cache
+
 [rebase]
-	autoStash = true
+    autoStash = true
+
 [credential "https://github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+    helper = 
+    helper = !/opt/homebrew/bin/gh auth git-credential
+
 [credential "https://gist.github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+    helper = 
+    helper = !/opt/homebrew/bin/gh auth git-credential
+

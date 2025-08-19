@@ -7,7 +7,7 @@ required = true
 [user]
 name = phonglh
 email = phonghngle@gmail.com
-
+signingKey="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM6Wiq3iiWC0LUhDJaGN/N9OXONg0h2NvA0y7/6xRErp"
 [color]
 ui = true
 
@@ -42,11 +42,15 @@ rebase = true
 [push]
 default = upstream
 [github]
-user = folke
+user = phnglh
 [init]
 defaultBranch = main
+[gpg]
+format = ssh
+[gpg "ssh"]
+	program = /usr/bin/ssh-keygen
 [commit]
-gpgsign = false
+gpgsign = true
 [credential]
 helper = cache
 [rebase]

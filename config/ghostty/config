@@ -1,49 +1,29 @@
-# Fonts
-font-family = "Fira Code"
-font-family-bold = "Fira Code"
-font-family-italic = "Maple Mono"
-font-family-bold-italic = "Maple Mono"
-font-family = "Symbols Nerd Font Mono"
-font-size = 10
-adjust-underline-position = 4
+theme = catppuccin-mocha
+font-family = "MartianMono Nerd Font"
+font-size = 12
 
-# Mouse
-mouse-hide-while-typing = true
-# mouse-scroll-multiplier = 1
-
-# Theme
-cursor-invert-fg-bg = true
+# Background transparency (0.0 = fully transparent, 1.0 = fully opaque)
 background-opacity = 0.8
-window-theme = ghostty
 
-# keybindings
-keybind = clear
-keybind = ctrl+shift+h=goto_split:left
-keybind = ctrl+shift+j=goto_split:bottom
-keybind = ctrl+shift+k=goto_split:top
-keybind = ctrl+shift+l=goto_split:right
-keybind = super+shift+t=new_tab
-keybind = super+shift+h=previous_tab
-keybind = super+shift+l=next_tab
-keybind = super+shift+comma=move_tab:-1
-keybind = super+shift+period=move_tab:1
-keybind = super+shift+c=copy_to_clipboard
-keybind = super+shift+v=paste_from_clipboard
-keybind = super+shift+enter=new_split:auto
-keybind = super+shift+i=inspector:toggle
-keybind = super+shift+m=toggle_split_zoom
-keybind = super+shift+r=reload_config
-keybind = super+shift+s=write_screen_file:open
-keybind = super+shift+w=close_surface
+# Optional: Add background blur for a nicer transparent effect
+background-blur = 50
 
-# Window
-gtk-single-instance = true
-gtk-tabs-location = bottom
-gtk-wide-tabs = false
-window-padding-y = 2,0
-window-padding-balance = true
-window-decoration = false
+# Hide the title bar on macOS
+macos-titlebar-style = hidden
 
-# Other
-copy-on-select = clipboard
-shell-integration-features = cursor,sudo,no-title
+# Window size - always open with consistent dimensions
+# Size is in terminal grid cells (characters wide by lines high)
+window-width = 160
+window-height = 50
+
+# Fix backspace key issues
+term = xterm-256color
+
+# Explicit keybindings for backspace to ensure it works correctly
+keybind = backspace=text:\x7f
+keybind = ctrl+backspace=text:\x08
+
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+keybind = shift+enter=text:\n

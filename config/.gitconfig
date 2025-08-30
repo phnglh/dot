@@ -7,7 +7,7 @@
 [user]
     name = phonglh
     email = phonghngle@gmail.com
-    signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM6Wiq3iiWC0LUhDJaGN/N9OXONg0h2NvA0y7/6xRErp
+    signingKey = ~/.ssh/id_phnglh
 
 [color]
     ui = true

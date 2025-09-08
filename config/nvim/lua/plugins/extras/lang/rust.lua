@@ -1,0 +1,44 @@
+return {
+  -- TODO: check following tools -> mypy types-requests types-docutils
+  -- {
+  --   "williamboman/mason.nvim",
+  --   opts = function(_, opts)
+  --     vim.list_extend(opts.ensure_installed, {
+  --       "rust-analyzer",
+  --     })
+  --   end,
+  -- },
+  --
+  -- -- Add `server` and setup lspconfig
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   dependencies = {},
+  --   opts = {
+  --     servers = {
+  --       rust_analyzer = {
+  --         settings = {
+  --           rust_analyzer = {},
+  --         },
+  --       },
+  --     },
+  --     setup = {
+  --       rust_analyzer = function()
+  --         LazyVim.lsp.on_attach(function(client, _)
+  --           if client.name == "rust_analyzer" then
+  --             client.server_capabilities.hoverProvider = false
+  --           end
+  --         end)
+  --       end,
+  --     },
+  --   },
+  -- },
+  --
+  -- -- Setup up format with new `conform.nvim`
+  -- {
+  --   "stevearc/conform.nvim",
+  --   optional = true,
+  --   opts = {
+  --     formatters_by_ft = {},
+  --   },
+  -- },
+}

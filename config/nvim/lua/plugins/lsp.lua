@@ -66,8 +66,6 @@ return {
         end,
       },
       servers = {
-        cssls = {},
-        html = {},
         basedpyright = {
           settings = {
             basedpyright = {
@@ -118,16 +116,6 @@ return {
                   ["unused"] = "Opened",
                 },
                 unusedLocalExclude = { "_*" },
-              },
-            },
-          },
-        },
-        -- prosemd_lsp = {},
-        gopls = {
-          settings = {
-            gopls = {
-              analyses = {
-                fieldalignment = false,
               },
             },
           },

@@ -1,4 +1,10 @@
 return {
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "gruvbox-material",
+    },
+  },
   { "akinsho/bufferline.nvim", opts = { options = { separator_style = "slope" } } },
 
   {

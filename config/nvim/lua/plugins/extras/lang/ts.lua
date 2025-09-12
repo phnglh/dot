@@ -1,6 +1,7 @@
 local util = require("util")
 
 return {
+
   -- Add ``lang`` to treesitter
   {
     "nvim-treesitter/nvim-treesitter",
@@ -13,58 +14,35 @@ return {
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
-        --[[Servers]]
-        --[[Formatters]]
-        "prettierd",
-        -- "prettier",
-      })
+      vim.list_extend(opts.ensure_installed, { "prettier", "prettierd", "typescript-language-server", "vtsls" })
     end,
   },
 
   -- Setup lspconfig
   {
     "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        html = {},
-        -- ts_ls = {
-        --   root_dir = function(...)
-        --     return require("lspconfig.util").root_pattern(".git")(...)
-        --   end,
-        -- },
-        cssls = {},
-        tailwindcss = {
-          root_dir = function(...)
-            return require("lspconfig.util").root_pattern(".git")(...)
-          end,
-        },
-        stylelint_lsp = {}, -- css linter
-        -- eslint = {},
-        -- intelephense = {},
-        emmet_language_server = {},
-      },
-      setup = {
-        -- tsserver = function(_, opts)
-        --   require("lazyvim.util").on_attach(function(client, buffer)
-        --     if client.name == "tsserver" then
-        --       client.server_capabilities.documentFormattingProvider = false
-        --       -- stylua: ignore
-        --       vim.keymap.set("n", "<leader>co", "<cmd>TypescriptOrganizeImports<CR>", { buffer = buffer, desc = "Organize Imports" })
-        --       -- stylua: ignore
-        --       vim.keymap.set("n", "<leader>cR", "<cmd>TypescriptRenameFile<CR>", { desc = "Rename File", buffer = buffer })
-        --     end
-        --     -- if client.name == "eslint" then
-        --     --   client.server_capabilities.documentFormattingProvider = true
-        --     -- end
-        --   end)
-        --   require("typescript").setup({ server = opts })
-        --   return true
-        -- end,
-      },
-    },
-  },
+    opts = function(_, opts)
+      opts.servers = opts.servers or {}
+      -- Provide a stub so LazyVim's typescript extra can safely extend `.settings`
+      opts.servers.tsserver = opts.servers.tsserver or { settings = { typescript = {}, javascript = {} } }
 
+      -- Prefer vtsls; enrich with sensible defaults
+      opts.servers.vtsls = vim.tbl_deep_extend("force", opts.servers.vtsls or {}, {
+        settings = {
+          vtsls = {
+            enableMoveToFileCodeAction = true,
+            autoUseWorkspaceTsdk = true,
+          },
+        },
+      })
+
+      -- Ensure tsserver does not start if vtsls is used
+      opts.setup = opts.setup or {}
+      opts.setup.tsserver = function()
+        return true -- skip default setup (disables tsserver)
+      end
+    end,
+  },
   -- Setup up format with new `conform.nvim`
   {
     "stevearc/conform.nvim",
@@ -80,6 +58,7 @@ return {
         ["html"] = { { "prettierd", "prettier" } },
         ["css"] = { { "prettierd", "prettier" } },
       },
+      stop_after_first = true,
     },
   },
 

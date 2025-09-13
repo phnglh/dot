@@ -32,5 +32,5 @@ dynamic_padding = false
 startup_mode = "Maximized"
 option_as_alt = "Both"
 opacity = 0.95
-padding = { x = 2, y = 2 }
+padding = { x = 4, y = 4 }
 

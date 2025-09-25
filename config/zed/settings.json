@@ -28,12 +28,12 @@
       "function": false
     }
   },
-  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_family": "MartianMono Nerd Font Mono",
   "ui_font_family": ".ZedMono",
   "vim_mode": true,
   "base_keymap": "VSCode",
   "ui_font_size": 14.0,
-  "buffer_font_size": 14.0,
+  "buffer_font_size": 12.0,
   "theme": {
     "mode": "system",
     "light": "Catppuccin Mocha",

@@ -1,6 +1,6 @@
 return {
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = function(_, opts)
       opts.ui = {
         border = "rounded",
@@ -87,24 +87,24 @@ return {
         end,
       },
       servers = {
-        basedpyright = {
-          settings = {
-            basedpyright = {
-              analysis = {
-                diagnosticSeverityOverrides = {
-                  reportWildcardImportFromLibrary = "none",
-                  reportUnusedImport = "information",
-                  reportUnusedClass = "information",
-                  reportUnusedFunction = "information",
-                  reportOptionalMemberAccess = "none",
-                  reportUnknownVariableType = "none",
-                  reportUnusedCallResult = "none",
-                },
-              },
-              disableTaggedHints = true,
-            },
-          },
-        },
+        -- basedpyright = {
+        --   settings = {
+        --     basedpyright = {
+        --       analysis = {
+        --         diagnosticSeverityOverrides = {
+        --           reportWildcardImportFromLibrary = "none",
+        --           reportUnusedImport = "information",
+        --           reportUnusedClass = "information",
+        --           reportUnusedFunction = "information",
+        --           reportOptionalMemberAccess = "none",
+        --           reportUnknownVariableType = "none",
+        --           reportUnusedCallResult = "none",
+        --         },
+        --       },
+        --       disableTaggedHints = true,
+        --     },
+        --   },
+        -- },
         lua_ls = {
           single_file_support = true,
           ---@type lspconfig.settings.lua_ls

@@ -12,7 +12,7 @@ return {
 
   -- Add ``server`` and ``formatter`` to mason
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, { "prettier", "prettierd" })
     end,
@@ -45,33 +45,32 @@ return {
   -- },
 
   -- Native TSServer client
-  -- {
-  --   "pmizio/typescript-tools.nvim",
-  --   ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-  --   dependencies = { "nvim-lua/plenary.nvim", "nvim-lspconfig" },
-  --   opts = function()
-  --     local api = require("typescript-tools.api")
-  --     return {
-  --       single_file_support = false,
-  --       settings = {
-  --         tsserver_file_preferences = {
-  --           includeInlayParameterNameHints = "literals",
-  --           includeInlayVariableTypeHints = true,
-  --           includeInlayFunctionLikeReturnTypeHints = true,
-  --         },
-  --       },
-  --       -- handlers = {
-  --       --   ["textDocument/publishDiagnostics"] = api.filter_diagnostics({
-  --       --     6133, -- 'x' is declared but its value is never read
-  --       --     6196, -- 'param' is declared but never used
-  --       --     80006, -- This may be converted to an async function
-  --       --   }),
-  --       -- },
-  --       -- on_attach = function(client, bufnr)
-  --       --   client.server_capabilities.diagnosticProvider = false
-  --       -- end,
-  --       --
-  --     }
-  --   end,
-  -- },
+  {
+    "pmizio/typescript-tools.nvim",
+    ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-lspconfig" },
+    opts = function()
+      return {
+        single_file_support = false,
+        settings = {
+          tsserver_file_preferences = {
+            includeInlayParameterNameHints = "literals",
+            includeInlayVariableTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+          },
+        },
+        -- handlers = {
+        --   ["textDocument/publishDiagnostics"] = api.filter_diagnostics({
+        --     6133, -- 'x' is declared but its value is never read
+        --     6196, -- 'param' is declared but never used
+        --     80006, -- This may be converted to an async function
+        --   }),
+        -- },
+        -- on_attach = function(client, bufnr)
+        --   client.server_capabilities.diagnosticProvider = false
+        -- end,
+        --
+      }
+    end,
+  },
 }

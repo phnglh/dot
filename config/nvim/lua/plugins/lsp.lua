@@ -15,7 +15,6 @@ return {
         -- LSP servers
         "lua-language-server",
         "gopls",
-        "pyright",
         "rust-analyzer",
 
         -- Formatter / Linter
@@ -26,7 +25,6 @@ return {
         "eslint_d", -- js/ts linter/formatter
         "shfmt", -- shell formatter
         "shellcheck", -- shell linter
-        "black", -- python formatter
       })
     end,
   },
@@ -87,24 +85,6 @@ return {
         end,
       },
       servers = {
-        -- basedpyright = {
-        --   settings = {
-        --     basedpyright = {
-        --       analysis = {
-        --         diagnosticSeverityOverrides = {
-        --           reportWildcardImportFromLibrary = "none",
-        --           reportUnusedImport = "information",
-        --           reportUnusedClass = "information",
-        --           reportUnusedFunction = "information",
-        --           reportOptionalMemberAccess = "none",
-        --           reportUnknownVariableType = "none",
-        --           reportUnusedCallResult = "none",
-        --         },
-        --       },
-        --       disableTaggedHints = true,
-        --     },
-        --   },
-        -- },
         lua_ls = {
           single_file_support = true,
           ---@type lspconfig.settings.lua_ls
@@ -141,7 +121,6 @@ return {
             },
           },
         },
-        ty = {},
       },
     },
   },

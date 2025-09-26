@@ -7,6 +7,8 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "black",
         "ruff",
+        "pyright",
+        "basedpyright",
       })
     end,
   },
@@ -17,7 +19,26 @@ return {
     dependencies = {},
     opts = {
       servers = {
-        -- pyright = {},
+        basedpyright = {
+          settings = {
+            basedpyright = {
+              analysis = {
+                diagnosticSeverityOverrides = {
+                  reportWildcardImportFromLibrary = "none",
+                  reportUnusedImport = "information",
+                  reportUnusedClass = "information",
+                  reportUnusedFunction = "information",
+                  reportOptionalMemberAccess = "none",
+                  reportUnknownVariableType = "none",
+                  reportUnusedCallResult = "none",
+                },
+              },
+              disableTaggedHints = true,
+            },
+          },
+        },
+
+        pyright = {},
         pylsp = {
           mason = false,
           settings = {
@@ -30,13 +51,11 @@ return {
             },
           },
         },
-        jedi_language_server = {},
       },
       setup = {
         pylsp = function()
           LazyVim.lsp.on_attach(function(client, _)
             if client.name == "pylsp" then
-              -- disable hover in favor of jedi-language-server
               client.server_capabilities.hoverProvider = false
             end
           end)
@@ -44,7 +63,6 @@ return {
         pyright = function()
           require("lazyvim.util").lsp.on_attach(function(client, _)
             if client.name == "pyright" then
-              -- disable hover in favor of jedi-language-server
               client.server_capabilities.hoverProvider = false
             end
           end)
@@ -62,5 +80,18 @@ return {
         ["python"] = { { "black", "ruff" } },
       },
     },
+  },
+
+  {
+    "linux-cultist/venv-selector.nvim",
+    cmd = "VenvSelect",
+    opts = {
+      options = {
+        notify_user_on_venv_activation = true,
+      },
+    },
+    --  Call config for Python files and load the cached venv automatically
+    ft = "python",
+    keys = { { "<leader>cv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv", ft = "python" } },
   },
 }

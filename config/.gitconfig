@@ -13,7 +13,7 @@
     ui = true
 
 [alias]
-  ci=checkin
+    ci=checkin
     st = status
     co = checkout
     br = branch

@@ -8,6 +8,12 @@ return {
   {
     "sainnhe/everforest",
   },
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "catppuccin/nvim", name = "catppuccin" },
   { "rose-pine/neovim", name = "rose-pine" },
+  {
+    "rebelot/kanagawa.nvim",
+  },
+  {
+    "folke/tokyonight.nvim",
+  },
 }

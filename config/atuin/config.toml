@@ -1,2 +1,4 @@
 [theme]
-name = "catppuccin-mocha-mauve"
+name = "mocha/catppuccin-mocha-lavender"
+[dotfiles]
+enabled = true

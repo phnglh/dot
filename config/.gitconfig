@@ -13,7 +13,7 @@
     ui = true
 
 [alias]
-    ci=checkin
+    ci = checkin
     st = status
     co = checkout
     br = branch
@@ -55,7 +55,7 @@
     user = phnglh
 
 [init]
-    defaultBranch = main
+    defaultBranch = master
 
 [gpg]
     format = ssh
